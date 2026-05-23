@@ -1,4 +1,41 @@
+!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jalan Ke Taman: Dedikasi Buat Alis Murni</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond, EB Garamond, Great Vibes, Pinyon Script (exquisite calligraphy), and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Pinyon+Script&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Regal Color Palette: Deep Navy & Gold */
+            --bg-primary: #0F172A; /* Deep Navy Slate */
+            --bg-card: #1E293B;    /* Lighter Navy */
+            --bg-dark: #020617;    /* Very Dark Navy */
+            
+            --text-light: #FDFBF7;
+            --accent-gold: #D4AF37;
+            
+            --book-green: #0F3822;
+            --book-maroon: #4A0E17;
+            --book-navy: #0B192C;
+            --book-charcoal: #222222;
+        }
 
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-light);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
@@ -677,9 +714,9 @@
                 Daripada anakanda Liza, Lina, Hafiz, Nurul, Aisyah, Khadijah & keluarga.
             </p>
             
-            <!-- Splitted core quote with beautiful floral italic size and warmth -->
+            <!-- Splitted core quote with Abah name -->
             <p class="text-2.5xl md:text-3.5xl font-serif-literary italic leading-relaxed text-[#FFFDF9] mb-8 px-4 font-light">
-                "Legasi akal, jiwa dan prinsip hidup Ayah akan sentiasa kami hidupi dengan damai, tanpa ragu, tanpa resah."
+                "Legasi akal, jiwa dan prinsip hidup Abah akan sentiasa kami hidupi dengan damai, tanpa ragu, tanpa resah."
             </p>
 
             <!-- Glowing decorative Zulhijjah 1447H Greeting utilizing Pinyon Script font -->
@@ -824,7 +861,7 @@
             audioCtx = new AudioContextClass();
             
             masterGain = audioCtx.createGain();
-            masterGain.gain.setValueAtTime(0.8, audioCtx.currentTime); // 40% default volume
+            masterGain.gain.setValueAtTime(0.8, audioCtx.currentTime); // 80% default volume (LOUDER)
             masterGain.connect(audioCtx.destination);
         }
 
