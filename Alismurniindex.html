@@ -800,7 +800,7 @@
             <!-- Custom Sound Slider -->
             <div class="flex items-center gap-1">
                 <i class="fas fa-volume-down text-[10px] text-gray-400"></i>
-                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.4" oninput="adjustVolume(this.value)" class="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#D4AF37]">
+                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.8" oninput="adjustVolume(this.value)" class="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#D4AF37]">
             </div>
         </div>
     </div>
@@ -861,7 +861,7 @@
             audioCtx = new AudioContextClass();
             
             masterGain = audioCtx.createGain();
-            masterGain.gain.setValueAtTime(0.4, audioCtx.currentTime); // 40% default volume
+            masterGain.gain.setValueAtTime(0.8, audioCtx.currentTime); // 40% default volume
             masterGain.connect(audioCtx.destination);
         }
 
