@@ -6,17 +6,24 @@
     <title>Jalan Ke Taman: Dedikasi Buat Alis Murni</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond, EB Garamond, Great Vibes, Pinyon Script (exquisite calligraphy), and Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Pinyon+Script&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-primary: #0F172A; 
-            --bg-card: #1E293B;    
-            --bg-dark: #020617;    
+            /* Regal Color Palette: Deep Navy & Gold */
+            --bg-primary: #0F172A; /* Deep Navy Slate */
+            --bg-card: #1E293B;    /* Lighter Navy */
+            --bg-dark: #020617;    /* Very Dark Navy */
+            
             --text-light: #FDFBF7;
             --accent-gold: #D4AF37;
+            
+            --book-green: #0F3822;
+            --book-maroon: #4A0E17;
+            --book-navy: #0B192C;
+            --book-charcoal: #222222;
         }
 
         body {
@@ -32,6 +39,7 @@
             scroll-behavior: smooth;
         }
 
+        /* Navigasi Styling */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -55,6 +63,7 @@
             transform: translateY(-1px);
         }
         
+        /* Subtle background pattern for depth */
         .bg-pattern {
             background-color: var(--bg-primary);
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -68,6 +77,11 @@
             font-family: 'Great Vibes', cursive;
         }
 
+        .font-handwritten {
+            font-family: 'Pinyon Script', cursive;
+        }
+
+        /* Theatrical Portrait Frame Styling with gold outline */
         .profile-frame {
             border: 3px solid #D4AF37;
             outline: 8px solid rgba(212, 175, 55, 0.08);
@@ -81,6 +95,7 @@
             box-shadow: 0 20px 35px rgba(212, 175, 55, 0.15);
         }
 
+        /* PREMIUM CSS HARDCOVER BOOK STYLES WITH GLOW & SHIMMER GIMMICKS */
         .book-jacket {
             position: relative;
             aspect-ratio: 2 / 3;
@@ -100,6 +115,7 @@
             overflow: hidden;
         }
 
+        /* The book spine boundary line */
         .book-jacket::before {
             content: '';
             position: absolute;
@@ -111,6 +127,7 @@
             z-index: 10;
         }
 
+        /* SHINING GLOSS SWEEP (Reflective overlay catch of light) */
         .book-jacket::after {
             content: '';
             position: absolute;
@@ -131,14 +148,16 @@
             transition: none;
         }
 
+        /* GOLDEN AMBIENT GLOW ON HOVER */
         .book-jacket:hover {
             transform: translateY(-12px) scale(1.025);
             box-shadow: 
-                0 0 25px rgba(212, 175, 55, 0.35), 
+                0 0 25px rgba(212, 175, 55, 0.35), /* Stunning Golden Glow */
                 inset 5px 0 10px rgba(0, 0, 0, 0.3),
                 10px 20px 30px rgba(0,0,0,0.5);
         }
 
+        /* Trigger shine sweep on hover */
         .book-jacket:hover::after {
             left: 150%;
             transition: left 0.9s cubic-bezier(0.19, 1, 0.22, 1);
@@ -163,6 +182,7 @@
             z-index: 20;
         }
 
+        /* Beautiful Classical Poem Card frame corners */
         .poem-card {
             background-color: #1E293B;
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -191,6 +211,7 @@
             border-top: 0;
         }
 
+        /* Modal Overlay */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -251,6 +272,7 @@
             color: var(--accent-gold);
         }
 
+        /* Elegant SVG Floral Divider */
         .floral-divider {
             display: flex;
             align-items: center;
@@ -266,6 +288,7 @@
             background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
         }
 
+        /* Timeline UI */
         .timeline-line {
             position: absolute;
             left: 11px;
@@ -276,6 +299,7 @@
             z-index: 0;
         }
 
+        /* Audio Floating Widget */
         .audio-widget {
             position: fixed;
             bottom: 1.5rem;
@@ -304,7 +328,7 @@
 </head>
 <body class="antialiased bg-pattern">
 
-    <!-- NAVIGATION BAR -->
+    <!-- PENGEMUDI LAMAN (NAVIGATION BAR) -->
     <nav class="sticky top-0 z-50 bg-[#020617]/90 backdrop-blur-md border-b border-[#D4AF37]/20 shadow-lg">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <span class="font-cursive text-2xl text-[#D4AF37] hidden sm:inline">Alis Murni</span>
@@ -315,33 +339,43 @@
                 <li><a href="#puisi" class="nav-btn">Gema Rasa</a></li>
                 <li><a href="#sarjana" class="nav-btn">Di Mata Sarjana</a></li>
                 <li><a href="#karya" class="nav-btn">Khazanah Karya</a></li>
+                <li><a href="#pewaris" class="nav-btn">Pewaris</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <header id="utama" class="py-24 px-6 text-center max-w-5xl mx-auto scroll-mt-24">
+        
+        <!-- Seamless Theatrical Double Portrait Container (Zero Gap Side-by-Side) -->
         <div class="flex justify-center items-center mb-12 max-w-xl md:max-w-2xl mx-auto overflow-hidden rounded-lg profile-frame">
-            <!-- Gambar Muda -->
+            
+            <!-- Gambar Muda (Kiri) - Baju Batik & Songkok -->
             <div class="relative w-1/2 aspect-[4/5] overflow-hidden border-r border-[#D4AF37]/35 bg-slate-900">
                 <img src="https://i.postimg.cc/vZd5CjM4/Screenshot-2026-05-18-225923.png" alt="Prof Ali bin Ahmad (Muda)" class="w-full h-full object-cover">
                 <div class="absolute bottom-0 inset-x-0 bg-[#020617]/85 py-1.5 text-center text-xs text-[#D4AF37] tracking-widest font-sans uppercase">Zaman Muda</div>
             </div>
-            <!-- Gambar Emas -->
+            
+            <!-- Gambar Emas/Tua (Kanan) - Jubah Putih & Kopiah (Seamless side-by-side) -->
             <div class="relative w-1/2 aspect-[4/5] overflow-hidden bg-slate-900">
                 <img src="https://i.postimg.cc/cJFYgL3v/Screenshot-2026-05-18-225842.png" alt="Prof Ali bin Ahmad (Kini)" class="w-full h-full object-cover">
                 <div class="absolute bottom-0 inset-x-0 bg-[#020617]/85 py-1.5 text-center text-xs text-[#D4AF37] tracking-widest font-sans uppercase">Zaman Emas</div>
             </div>
+            
         </div>
         
+        <!-- Elegant Flowery Font Accent -->
         <div class="font-cursive text-4xl md:text-5xl text-[#D4AF37] mb-2">Alis Murni</div>
+        
         <h1 class="text-4xl md:text-6.5xl font-serif-literary font-medium mb-4 text-[#D4AF37] tracking-wide leading-tight">Jalan Ke Taman</h1>
         <h2 class="text-xl md:text-2xl text-gray-200 font-serif-literary italic mb-6">Penghormatan & Dedikasi Buat Prof. Ali bin Ahmad</h2>
+        
         <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mt-6 font-serif-literary font-light italic">
             "Meraikan sebuah legasi akal, jiwa, dan cinta yang mendalam kepada Kesusasteraan Melayu dan kelestarian warisan bangsa."
         </p>
     </header>
 
+    <!-- Elegant Flower Divider -->
     <div class="floral-divider">
         <div class="floral-divider-line"></div>
         <svg class="w-8 h-8 mx-3 fill-current text-[#D4AF37]" viewBox="0 0 24 24">
@@ -351,16 +385,19 @@
         <div class="floral-divider-line"></div>
     </div>
 
-    <!-- BIOGRAFI SECTION -->
+    <!-- BIOGRAFI & SEJARAH SECTION -->
     <section id="biografi" class="py-12 px-6 max-w-6xl mx-auto scroll-mt-24">
         <div class="text-center mb-16">
             <div class="font-cursive text-3xl text-[#D4AF37]">Sorotan Hayat</div>
             <h2 class="text-3xl md:text-4xl font-serif-literary font-bold text-white mt-1">Perjalanan Seorang Ilmuwan</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mt-2 font-serif-literary italic">"Dari ruang kelas anak sekolah hingga memimpin pemikiran sastera di puncak menara gading."</p>
         </div>
         
         <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Timeline Section -->
             <div class="bg-[#1E293B] p-8 md:p-10 rounded-xl shadow-lg border border-[#D4AF37]/15 relative">
                 <h3 class="text-2xl font-serif-literary font-semibold mb-8 text-[#D4AF37] border-b border-[#D4AF37]/20 pb-4">Garis Masa Kehidupan</h3>
+                
                 <div class="relative pl-8 space-y-8 text-base">
                     <div class="timeline-line"></div>
                     
@@ -373,62 +410,75 @@
                     <div class="relative z-10">
                         <div class="absolute -left-10 bg-[#D4AF37] w-4 h-4 rounded-full border-4 border-[#1E293B] mt-1.5"></div>
                         <strong class="block text-white font-serif-literary text-lg mb-1">Language Institute (Maktab Perguruan Bahasa)</strong>
-                        <p class="text-gray-300 font-light">Menerima latihan perguruan awal di Lembah Pantai.</p>
+                        <p class="text-gray-300 font-light">Menerima latihan perguruan awal di Lembah Pantai. Di sinilah asas pendidik dan kecintaan mendalam pada tatabahasa Melayu mula berakar umbi.</p>
                     </div>
 
                     <div class="relative z-10">
                         <div class="absolute -left-10 bg-white w-4 h-4 rounded-full border-4 border-[#D4AF37] mt-1.5"></div>
                         <strong class="block text-[#D4AF37] font-serif-literary text-lg mb-1">1968: Menyubur Benih Sastera di Pontian</strong>
-                        <p class="text-gray-300 font-light mb-3">Berbakti sebagai guru sastera di <strong class="text-white">Sekolah Dato' Penggawa Barat, Pontian</strong>.</p>
+                        <p class="text-gray-300 font-light mb-3">Sebelum bergelar sarjana besar, beliau berbakti sebagai guru sastera dan guru kelas Tingkatan 5 di <strong class="text-white">Sekolah Dato' Penggawa Barat, Pontian</strong>.</p>
                         <div class="border-l border-[#D4AF37]/40 pl-4 py-2 bg-[#020617]/50 rounded-r">
-                            <p class="text-sm font-serif-literary italic text-gray-300">"Ali Haji Ahmad (Alis Murni) guru kelas saya tatkala di tingkatan 5 / guru sastera di tahun 1968..."</p>
-                            <p class="text-[11px] text-[#D4AF37] mt-1.5 uppercase tracking-wider font-sans">- Catatan Memori Seorang Bekas Pelajar</p>
+                            <p class="text-sm font-serif-literary italic text-gray-300">"Ali Haji Ahmad (Alis Murni) guru kelas saya tatkala di tingkatan 5 / guru sastera di tahun 1968, di Sekolah Dato Penggawa Barat Pontian..."</p>
+                            <p class="text-[11px] text-[#D4AF37] mt-1.5 uppercase tracking-wider font-sans">- Catatan Memori Seorang Bekas Pelajar (2021)</p>
                         </div>
                     </div>
 
                     <div class="relative z-10">
                         <div class="absolute -left-10 bg-[#D4AF37] w-4 h-4 rounded-full border-4 border-[#1E293B] mt-1.5"></div>
                         <strong class="block text-white font-serif-literary text-lg mb-1">Pendidikan Tinggi Menara Gading</strong>
-                        <p class="text-gray-300 font-light">Meraih Ijazah Pertama & Sarjana dari UM, sebelum memperolehi PhD dari Monash University, Australia.</p>
+                        <p class="text-gray-300 font-light">Meraih Ijazah Pertama and Sarjana dari Universiti Malaya (UM), sebelum melayari lautan ilmu lebih jauh bagi mendapatkan PhD dari Monash University, Australia.</p>
                     </div>
 
                     <div class="relative z-10">
                         <div class="absolute -left-10 bg-[#D4AF37] w-4 h-4 rounded-full border-4 border-[#1E293B] mt-1.5"></div>
-                        <strong class="block text-white font-serif-literary text-lg mb-1">1974: Khidmat Pensyarahan di USM</strong>
-                        <p class="text-gray-300 font-light">Memulakan legasi kecemerlangan akademik jangka panjang di Universiti Sains Malaysia.</p>
+                        <strong class="block text-white font-serif-literary text-lg mb-1">1970 - 1974: Khidmat Pensyarahan</strong>
+                        <p class="text-gray-300 font-light">Memulakan kerjaya akademik di UKM, sebelum berhijrah ke Universiti Sains Malaysia (USM) pada tahun 1974 untuk membina mercu keilmuannya.</p>
+                    </div>
+
+                    <div class="relative z-10">
+                        <div class="absolute -left-10 bg-white w-4 h-4 rounded-full border-4 border-[#D4AF37] mt-1.5"></div>
+                        <strong class="block text-[#D4AF37] font-serif-literary text-lg mb-1">1976: Pengiktirafan Sastera</strong>
+                        <p class="text-gray-300 font-light">Ulasan kritikan sasteranya mendapat sanjungan tinggi dengan memenangi anugerah esei sastera berprestij.</p>
                     </div>
 
                     <div class="relative z-10">
                         <div class="absolute -left-10 bg-[#D4AF37] w-4 h-4 rounded-full border-4 border-[#1E293B] mt-1.5"></div>
                         <strong class="block text-white font-serif-literary text-lg mb-1">Membimbing Sasterawan Negara</strong>
-                        <p class="text-gray-300 font-light">Bertindak sebagai penyelia PhD kepada sasterawan tersohor, <strong class="text-[#D4AF37]">Datuk Shahnon Ahmad</strong>.</p>
+                        <p class="text-gray-300 font-light">Bertindak sebagai penyelia (supervisor) PhD kepada sarjana sastera and Sasterawan Negara tersohor, <strong class="text-[#D4AF37]">Datuk Shahnon Ahmad</strong> di USM.</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Context cards / columns -->
             <div class="space-y-8">
+                <!-- Tiga Wajah Context -->
                 <div class="bg-[#020617] p-8 rounded-xl border border-[#D4AF37]/20 relative overflow-hidden">
+                    <div class="absolute -right-8 -bottom-8 opacity-5 text-gold">
+                        <i class="fas fa-feather text-9xl"></i>
+                    </div>
                     <h3 class="text-2xl font-serif-literary font-semibold mb-4 text-[#D4AF37]">Tiga Wajah Ali Ahmad</h3>
                     <p class="text-base mb-4 text-gray-300 leading-relaxed font-serif-literary">
-                        Dalam sejarah kesusasteraan tanah air, nama <strong class="text-white font-bold">"Ali Ahmad"</strong> merujuk kepada tiga peribadi unik:
+                        Dalam sejarah kesusasteraan tanah air, nama <strong class="text-white font-bold">"Ali Ahmad"</strong> adalah jenama intelek yang besar, merujuk kepada tiga peribadi unik:
                     </p>
-                    <ul class="space-y-3 text-base text-gray-300 ml-5 list-disc font-serif-literary">
-                        <li>Dato' Ali Hj Ahmad (Arena politik).</li>
-                        <li>Pak Nora / Ali Ahmad (Dakwah kreatif & novel).</li>
-                        <li class="text-[#D4AF37] italic font-medium">Prof. Ali bin Ahmad / Alis Murni (Kritikan sastera akademik, teori Islam, dan penyelidikan teks klasik USM).</li>
+                    <ul class="space-y-3 text-base text-gray-300 ml-5 list-disc mb-4 font-serif-literary">
+                        <li>Dato' Ali Hj Ahmad (Arena kepimpinan politik).</li>
+                        <li>Pak Nora / Ali Ahmad (Dakwah kreatif & fiksyen novel).</li>
+                        <li class="text-[#D4AF37] italic font-medium">Prof. Ali bin Ahmad / Alis Murni (Tonggak kritikan sastera akademik, teori Islam, dan penyelidikan teks klasik USM).</li>
                     </ul>
                 </div>
 
+                <!-- Philosophical Shift Context -->
                 <div class="bg-gradient-to-br from-[#1E293B] to-[#020617] p-8 rounded-xl border-l-4 border-[#D4AF37] shadow-lg">
                     <h3 class="text-xl font-serif-literary font-semibold mb-3 text-white">Falsafah Pemikiran Alis Murni</h3>
                     <p class="text-base text-gray-300 leading-relaxed font-serif-literary">
-                        Beliau memilih membina teori kritikan berteraskan ketaqwaan, keimanan, serta nilai mulia al-Quran, menepis igauan falsafah sekular Barat untuk pulang kepada akar tradisi Islam sejati.
+                        Walaupun dipengaruhi oleh kritikan moden di Barat, anjakan rohani membawa beliau <strong class="text-[#D4AF37] font-medium">pulang kepada akar tradisi sastera Islam</strong>. Beliau menepis teori igauan falsafah sekular dan memilih membina teori kritikan berteraskan ketaqwaan, keimanan, serta nilai mulia al-Quran.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Elegant Flower Divider -->
     <div class="floral-divider">
         <div class="floral-divider-line"></div>
         <svg class="w-8 h-8 mx-3 fill-current text-[#D4AF37]" viewBox="0 0 24 24">
@@ -438,11 +488,12 @@
         <div class="floral-divider-line"></div>
     </div>
 
-    <!-- PUISI SECTION (KINI HANYA 4 SAJAK ASLI SAHAJA) -->
+    <!-- RUANGAN KHAS: PUISI SECTION -->
     <section id="puisi" class="py-12 px-6 max-w-6xl mx-auto scroll-mt-24">
         <div class="text-center mb-16">
             <div class="font-cursive text-3xl text-[#D4AF37]">Rimba Aksara</div>
             <h2 class="text-3xl md:text-4xl font-serif-literary font-bold text-white mt-1">Gema Rasa & Ruhani</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mt-2 font-serif-literary italic">Kutipan sajak-sajak Alis Murni yang membina 'Rumah Budaya' berpaksikan tauhid.</p>
         </div>
         
         <div class="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -450,9 +501,18 @@
             <div class="poem-card p-8 md:p-10">
                 <h3 class="text-2xl md:text-3xl font-serif-literary font-semibold text-[#D4AF37] mb-8 text-center">Jalan Ke Taman</h3>
                 <div class="font-serif-literary italic text-lg text-gray-200 leading-loose text-center space-y-6">
-                    <p>"Jalan ini ikut cita hati<br>Paling halus dan kudus<br>Dalam lagu damai dan senang"</p>
+                    <p>
+                        "Jalan ini ikut cita hati<br>
+                        Paling halus dan kudus<br>
+                        Dalam lagu damai dan senang
+                    </p>
                     <p class="text-[#D4AF37] opacity-60 text-xl font-sans">...</p>
-                    <p>"Di hujung taman-taman menanti<br>Sekelilingan sepi dan puji<br>Hembus-hembus deru kudus<br>Desir dari Firdaus."</p>
+                    <p>
+                        Di hujung taman-taman menanti<br>
+                        Sekelilingan sepi dan puji<br>
+                        Hembus-hembus deru kudus<br>
+                        Desir dari Firdaus."
+                    </p>
                 </div>
             </div>
 
@@ -460,8 +520,19 @@
             <div class="poem-card p-8 md:p-10">
                 <h3 class="text-2xl md:text-3xl font-serif-literary font-semibold text-[#D4AF37] mb-8 text-center">Sebuah Rumah Budaya</h3>
                 <div class="font-serif-literary italic text-lg text-gray-200 leading-loose text-center space-y-6">
-                    <p>"Kubina dia<br>Dengan asas kepercayaan<br>Tiangnya kalimah-kalimah Allah<br>Dindingnya kata-kata Muhammad<br>Bumbungnya takwa<br>Pintunya Lailahaillallah"</p>
-                    <p>"Ke hatinya insan masuk<br>Mencari cahaya hidayat<br><strong class="font-medium text-[#D4AF37] not-italic">Hidup di dalamnya<br>Tanpa ragu<br>Tanpa resah.</strong>"</p>
+                    <p>
+                        "Kubina dia<br>
+                        Dengan asas kepercayaan<br>
+                        Tiangnya kalimah-kalimah Allah<br>
+                        Dindingnya kata-kata Muhammad<br>
+                        Bumbungnya takwa<br>
+                        Pintunya Lailahaillallah<br>
+                        Ke hatinya insan masuk<br>
+                        Mencari cahaya hidayat<br>
+                        <strong class="font-medium text-[#D4AF37] not-italic">Hidup di dalamnya<br>
+                        Tanpa ragu<br>
+                        Tanpa resah.</strong>"
+                    </p>
                 </div>
             </div>
 
@@ -469,9 +540,21 @@
             <div class="poem-card p-8 md:p-10">
                 <h3 class="text-2xl md:text-3xl font-serif-literary font-semibold text-[#D4AF37] mb-8 text-center">Penyairku</h3>
                 <div class="font-serif-literary italic text-lg text-gray-200 leading-loose text-center space-y-6">
-                    <p>"Lamalah kita berhibur<br>Dengan permainan Rama dan Sita<br>Dewasakah kita jadinya<br>Dengan keresahan hati Shakespeare..."</p>
+                    <p>
+                        "Lamalah kita berhibur<br>
+                        Dengan permainan Rama dan Sita<br>
+                        Dewasakah kita jadinya<br>
+                        Dengan keresahan hati Shakespeare...<br>
+                        'kan berubah wajah kita<br>
+                        Dengan teori igauan Darwinisme."
+                    </p>
                     <p class="text-[#D4AF37] opacity-60 text-xl font-sans">...</p>
-                    <p>"Ingatlah mimpi pertama Malik al-Salih,<br>Bila Muhammad mengajarkan al-Qur'an<br>Hukum bagi dua kehidupan..."</p>
+                    <p>
+                        "Ingatlah mimpi pertama Malik al-Salih,<br>
+                        Bila Muhammad mengajarkan al-Qur'an<br>
+                        Hukum bagi dua kehidupan...<br>
+                        Permulaan itu bayangan akhiran adalah kenyataan."
+                    </p>
                 </div>
             </div>
 
@@ -479,14 +562,27 @@
             <div class="poem-card p-8 md:p-10">
                 <h3 class="text-2xl md:text-3xl font-serif-literary font-semibold text-[#D4AF37] mb-8 text-center">Fikir</h3>
                 <div class="font-serif-literary italic text-lg text-gray-200 leading-loose text-center space-y-6">
-                    <p>"Fikir itu tidak memuktamadkan<br>Kerana logika berubah<br>Dan terhad kemutlakannya."</p>
+                    <p>
+                        "Fikir itu tidak memuktamadkan<br>
+                        Kerana logika berubah<br>
+                        Dan terhad kemutlakannya."
+                    </p>
                     <p class="text-[#D4AF37] opacity-60 text-xl font-sans">...</p>
-                    <p>"Sesekali ia berhenti<br>Atas ikatan peribadi<br>Enggan tunduk pada kebenaran<br>Yang sendirinya bukan hakiki."</p>
+                    <p>
+                        "Sesekali ia berhenti<br>
+                        Pada batas belum sempurna<br>
+                        Atau menolak kesimpulan<br>
+                        Atas ikatan peribadi<br>
+                        Enggan tunduk pada kebenaran<br>
+                        Atau menghindar kecemaran diri<br>
+                        Yang sendirinya bukan hakiki."
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Elegant Flower Divider -->
     <div class="floral-divider">
         <div class="floral-divider-line"></div>
         <svg class="w-8 h-8 mx-3 fill-current text-[#D4AF37]" viewBox="0 0 24 24">
@@ -496,32 +592,44 @@
         <div class="floral-divider-line"></div>
     </div>
 
-    <!-- DI MATA SARJANA SECTION -->
+    <!-- PANDANGAN TOKOH SECTION -->
     <section id="sarjana" class="py-12 px-6 max-w-6xl mx-auto scroll-mt-24">
         <div class="text-center mb-16">
             <div class="font-cursive text-3xl text-[#D4AF37]">Suara Sahabat</div>
             <h2 class="text-3xl md:text-4xl font-serif-literary font-bold text-white mt-1">Di Mata Sarjana</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mt-2 font-serif-literary italic">Penghargaan ilmiah daripada tokoh kesusasteraan seangkatan.</p>
         </div>
         
         <div class="max-w-4xl mx-auto">
             <div class="bg-gradient-to-br from-[#020617] to-[#0F172A] p-10 md:p-12 rounded-xl border-l-4 border-[#D4AF37] shadow-lg relative">
                 <i class="fas fa-quote-right text-6xl text-[#D4AF37] opacity-10 absolute top-8 right-8"></i>
+                
                 <div class="font-serif-literary italic text-lg md:text-xl text-gray-200 leading-relaxed mb-8 space-y-6">
-                    <p>"Melalui <em>Jalan Ke Taman</em> memperlihatkan perubahan ketara penyair kepada pengukuhan dirinya dengan keislaman, jiwanya dengan keimanan dan hatinya dengan ketaqwaan. Jelas Ali tidak mahu dihanyutkan oleh budaya dan pemikiran Barat, sebaliknya beliau mahu kembali kepada akar tradisi."</p>
+                    <p>
+                        "Satu fenomena yang menggembirakan... ialah berlakunya perubahan positif di kalangan sasterawan kepada kesedaran keislaman. Antara penulis atau lebih khusus penyair yang menerima perubahan ke arah keislaman ini ialah <strong class="text-[#D4AF37] font-medium">Ali Ahmad yang juga dikenali dengan nama penanya Alis Murni</strong>."
+                    </p>
+                    <p>
+                        "Melalui <em>Jalan Ke Taman</em> memperlihatkan perubahan ketara penyair kepada pengukuhan dirinya dengan keislaman, jiwanya dengan keimanan dan hatinya dengan ketaqwaan. Jelas Ali tidak mahu dihanyutkan oleh budaya and pemikiran Barat, sebaliknya beliau mahu kembali kepada akar tradisi dan keislaman."
+                    </p>
+                    <p>
+                        "Ali membicarakan secara mendalam mengenai aspek-aspek keislaman... Dengan perubahan yang dialaminya, Ali mahu membina sesuatu yang benar-benar bernilai sebagaimana yang diyakininya. Mesej yang dibawanya besar... Bagi Ali, mesej yang hendak disampaikan itu lebih bermakna and itulah tujuannya."
+                    </p>
                 </div>
+
                 <div class="flex items-center gap-6 border-t border-[#D4AF37]/20 pt-6">
                     <div class="w-14 h-14 rounded-full bg-[#1E293B] flex items-center justify-center text-[#D4AF37] text-xl">
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <div>
                         <strong class="block text-white text-lg font-serif-literary">Dr. Shafie Abu Bakar</strong>
-                        <span class="text-xs text-[#D4AF37] uppercase tracking-widest font-sans">Sasterawan & Mantan Pengkaji Academic</span>
+                        <span class="text-xs text-[#D4AF37] uppercase tracking-widest font-sans">Sasterawan & Mantan Pengkaji Akademik (Catatan 2014)</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Elegant Flower Divider -->
     <div class="floral-divider">
         <div class="floral-divider-line"></div>
         <svg class="w-8 h-8 mx-3 fill-current text-[#D4AF37]" viewBox="0 0 24 24">
@@ -531,77 +639,193 @@
         <div class="floral-divider-line"></div>
     </div>
 
-    <!-- KHAZANAH KARYA SECTION -->
+    <!-- RAK BUKU DIGITAL SECTION WITH GIMMICK GLOW & SHIMMER -->
     <section id="karya" class="py-12 px-6 max-w-6xl mx-auto mb-24 scroll-mt-24">
         <div class="text-center mb-16">
             <div class="font-cursive text-3xl text-[#D4AF37]">Gedung Karya</div>
             <h2 class="text-3xl md:text-4xl font-serif-literary font-bold text-white mt-1">Khazanah Karya Alis Murni</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mt-2 font-serif-literary italic">Klik pada mana-mana naskhah untuk mengetahui lebih lanjut tentang sumbangan beliau kepada khazanah persuratan Melayu.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 max-w-5xl mx-auto">
+            
+            <!-- Book 1 -->
             <div class="flex flex-col items-center">
                 <div class="book-jacket bg-[#0F3822] text-white w-full" onclick="openModal('modal-book-1')">
                     <div class="border border-[rgba(255,255,255,0.15)] w-full h-full p-4 flex flex-col justify-center items-center relative">
+                        <!-- Classical Stars divider like the screenshot -->
                         <div class="text-gold opacity-80 text-lg mb-6 tracking-widest">✦ ✦ ✦</div>
                         <div class="book-title text-xl text-[#FDFBF7]">Antologi Puisi:<br>Jalan Ke Taman</div>
                         <div class="text-xs mt-2 text-[#D4AF37] font-serif-literary italic">1983</div>
                         <div class="book-author">Puisi</div>
                     </div>
                 </div>
+                <p class="text-center italic text-xs md:text-sm text-[#D4AF37]/70 mt-4 font-serif-literary tracking-wide">Klik untuk sinopsis</p>
             </div>
+
+            <!-- Book 2 -->
             <div class="flex flex-col items-center">
                 <div class="book-jacket bg-[#4A0E17] text-white w-full" onclick="openModal('modal-book-2')">
                     <div class="border border-[rgba(255,255,255,0.15)] w-full h-full p-4 flex flex-col justify-center items-center relative">
+                        <!-- Classical Stars divider like the screenshot -->
                         <div class="text-gold opacity-80 text-lg mb-6 tracking-widest">✦ ✦ ✦</div>
                         <div class="book-title text-2xl text-[#FDFBF7]">Novel:<br>Letusan</div>
                         <div class="book-author mt-2">Karya Kreatif</div>
                     </div>
                 </div>
+                <p class="text-center italic text-xs md:text-sm text-[#D4AF37]/70 mt-4 font-serif-literary tracking-wide">Klik untuk sinopsis</p>
             </div>
+
+            <!-- Book 3 -->
             <div class="flex flex-col items-center">
                 <div class="book-jacket bg-[#0B192C] text-white w-full" onclick="openModal('modal-book-3')">
                     <div class="border border-[rgba(255,255,255,0.15)] w-full h-full p-4 flex flex-col justify-center items-center relative">
+                        <!-- Classical Stars divider -->
                         <div class="text-gold opacity-80 text-lg mb-6 tracking-widest">✦ ✦ ✦</div>
                         <div class="book-title text-lg text-[#FDFBF7]">Hikayat Inderaputera</div>
                         <div class="book-author mt-4">Penyuntingan Klasik</div>
                     </div>
                 </div>
+                <p class="text-center italic text-xs md:text-sm text-[#D4AF37]/70 mt-4 font-serif-literary tracking-wide">Klik untuk sinopsis</p>
             </div>
+
+            <!-- Book 4 -->
             <div class="flex flex-col items-center">
                 <div class="book-jacket bg-[#2C2C2C] text-white w-full" onclick="openModal('modal-book-4')">
                     <div class="border border-[rgba(212,175,55,0.3)] w-full h-full p-3 flex flex-col justify-center items-center relative">
+                        <!-- Classical Stars divider -->
                         <div class="text-gold opacity-80 text-lg mb-4 tracking-widest">✦ ✦ ✦</div>
                         <div class="book-title text-base text-[#D4AF37]">Bahasa Kesusasteraan<br>& Kebudayaan<br>Melayu</div>
                         <div class="book-author mt-3">Esei & Kritikan</div>
+                    </div>
+                </div>
+                <p class="text-center italic text-xs md:text-sm text-[#D4AF37]/70 mt-4 font-serif-literary tracking-wide">Klik untuk sinopsis</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Elegant Flower Divider -->
+    <div class="floral-divider">
+        <div class="floral-divider-line"></div>
+        <svg class="w-8 h-8 mx-3 fill-current text-[#D4AF37]" viewBox="0 0 24 24">
+            <path d="M12,2A10,10,0,0,0,2,12a10,10,0,0,0,10,10,10,10,0,0,0,10-10A10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm-1-9H8v2h3v3h2V13h3V11H13V8H11Z"/>
+            <path d="M12,5a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,5Zm0,12a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,17Zm-6-6A1.5,1.5,0,1,0,7.5,12.5,1.5,1.5,0,0,0,6,11Zm12,0a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,18,11Z"/>
+        </svg>
+        <div class="floral-divider-line"></div>
+    </div>
+
+    <!-- RUANGAN KHAS PEWARIS AKSARA & JIWA (KARYA LINA) -->
+    <section id="pewaris" class="py-16 px-6 max-w-6xl mx-auto scroll-mt-24">
+        <div class="text-center mb-12">
+            <!-- Decorative Icon Symbol matching first screenshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-10 h-10 rounded-full border-2 border-[#D4AF37]/60 flex items-center justify-center text-[#D4AF37]/80 text-sm">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+            </div>
+            <div class="font-cursive text-3xl text-[#D4AF37] tracking-wide">Karya Rumah Alis Murni</div>
+            <h2 class="text-3xl md:text-5xl font-serif-literary font-bold text-[#FDFBF7] mt-2">Pewaris Aksara & Jiwa</h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mt-4 font-serif-literary italic leading-relaxed text-base md:text-lg">
+                Ruangan khas himpunan nukilan kreatif ahli keluarga Alis Murni sebagai penyambung legasi cinta kepada kesusasteraan dan persuratan warisan Abah.
+            </p>
+            <div class="w-24 h-[1px] bg-[#D4AF37]/30 mx-auto mt-6"></div>
+        </div>
+        
+        <!-- Sajak Keluarga: Rumah Kita Rumah Besar (Maksimum Kesamaan Visual dengan Screenshot) -->
+        <div class="bg-gradient-to-br from-[#1E293B] to-[#0F172A] p-8 md:p-12 rounded-xl border border-[#D4AF37]/45 shadow-2xl relative">
+            
+            <!-- Header of Poem Container -->
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start border-b border-[#D4AF37]/20 pb-6 mb-8">
+                <div>
+                    <h3 class="text-3xl md:text-4.5xl font-serif-literary font-bold text-[#D4AF37] tracking-wide leading-none">Rumah Kita Rumah Besar</h3>
+                    <span class="text-xs tracking-widest text-[#D4AF37]/80 font-bold block mt-3 uppercase font-sans">SAJAK KELUARGA</span>
+                </div>
+                <div class="mt-4 sm:mt-0">
+                    <span class="inline-block border border-[#D4AF37] text-[#D4AF37] px-5 py-2 rounded-full text-xs font-serif-literary tracking-wider bg-[#D4AF37]/10 uppercase font-semibold">
+                        Nukilan Lina
+                    </span>
+                </div>
+            </div>
+            
+            <!-- 7-Stanza Poem in 2-Column Balance Grid Layout with Capital Letters -->
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-8 text-left">
+                <!-- Column 1 -->
+                <div class="space-y-8">
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita rumah besar<br>
+                        Bukan kerana tingginya bumbung<br>
+                        Bukan juga luasnya tanah melingkari rumah<br>
+                        Tapi luas dengan rasa hati berbunga"
+                    </div>
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita rumah besar<br>
+                        Kerna penuh suara anak-anak<br>
+                        Adakala tawa memecah hening<br>
+                        Adakala tempik bergurau sang kakak"
+                    </div>
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita rumah besar<br>
+                        Kerna pelbagai ragam dan cerita<br>
+                        Tidak ada anak yang sama<br>
+                        Semua melakar perjalanan yang berbeza"
+                    </div>
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita rumah besar<br>
+                        Ingin damai jangan dicari perbezaan<br>
+                        Ingin tenang carilah kesamaan<br>
+                        Kelak rumah dan hati terasa sempit"
+                    </div>
+                </div>
+                
+                <!-- Column 2 (Elegant left-border divider on large screen) -->
+                <div class="space-y-8 md:border-l md:border-[#D4AF37]/25 md:pl-12">
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita rumah besar<br>
+                        Bukan kerana banyaknya bilik<br>
+                        Tetapi kerna bercelaru selipar dan kasut<br>
+                        Tatkala sekolah dan asrama melabuh tirai"
+                    </div>
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita rumah besar<br>
+                        Tiada gajet melampau mengikat<br>
+                        Kaki kecil lincah di laman<br>
+                        Yang besar tertawa mainan minda"
+                    </div>
+                    <div class="font-serif-literary italic text-[1.12rem] text-gray-200 leading-loose">
+                        "Rumah kita tetap rumah besar<br>
+                        Tatkala anak-anak kembali merantau<br>
+                        Pautan hati keluarga tetap mekar<br>
+                        Apabila silaturrahim sentiasa hidup dalam doa"
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER WARKAH KASIH (100% KELUARGA ASLI TANPA DAN KELUARGA) -->
+    <!-- FOOTER WARKAH KASIH -->
     <footer class="bg-[#050B14] text-white py-24 px-6 text-center border-t border-[#D4AF37]/25 relative">
-        <div class="max-w-3xl mx-auto">
-            <div class="font-sans text-[#D4AF37] text-sm uppercase tracking-[0.25em] mb-4">Warkah Kasih</div>
+        <div class="max-w-3xl mx-auto space-y-8">
+            <!-- WARKAH KASIH TITLE -->
+            <div class="font-sans text-[#D4AF37] text-sm uppercase tracking-[0.25em]">Warkah Kasih</div>
             
-            <!-- Bahagian Isteri Tercinta (Ibu) -->
-            <p class="text-xs text-[#D4AF37] uppercase tracking-widest font-sans mb-1">Daripada isteri tercinta:</p>
-            <p class="text-2xl md:text-3xl font-serif-literary tracking-wider text-[#F1E4C3] mb-6 font-medium">
-                Maznah Ahmad
-            </p>
-            
-            <!-- Bahagian Anak-Anakanda -->
-            <p class="text-xs text-[#D4AF37] uppercase tracking-widest font-sans mb-1">Serta anak-anakanda:</p>
-            <p class="text-xl md:text-2xl font-serif-literary tracking-wider text-[#F1E4C3] mb-6 font-medium max-w-2xl mx-auto leading-relaxed">
-                Liza, Lina, Hafiz, Nurul, Aisyah & Khadijah.
-            </p>
-            
-            <p class="text-2.5xl md:text-3.5xl font-serif-literary italic leading-relaxed text-[#FFFDF9] mb-8 px-4 font-light">
-                "Legasi akal, jiwa dan prinsip hidup Abah akan sentiasa kami hidupi dengan damai, tanpa ragu, tanpa resah."
-            </p>
+            <!-- Isteri Tercinta Block -->
+            <div class="space-y-2">
+                <span class="block text-[11px] uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Daripada Isteri Tercinta:</span>
+                <span class="block text-3xl md:text-4xl font-serif-literary text-[#FFFDF9] font-medium tracking-wide">Maznah Ahmad</span>
+            </div>
 
-            <p class="font-serif-literary italic text-2xl md:text-3xl text-[#D4AF37] tracking-wider mt-4">
-                Selamat menyambut Hari Raya Zulhijjah 1447H
+            <!-- Anak-anakanda Block -->
+            <div class="space-y-2">
+                <span class="block text-[11px] uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Serta Anak-Anakanda:</span>
+                <span class="block text-xl md:text-2xl font-serif-literary text-gray-200 tracking-wide font-light">
+                    Liza, Lina, Hafiz, Nurul, Aisyah & Khadijah.
+                </span>
+            </div>
+            
+            <!-- Core quote with Abah name -->
+            <p class="text-2xl md:text-3xl font-serif-literary italic leading-relaxed text-[#FFFDF9] pt-8 max-w-2xl mx-auto font-light border-t border-[#D4AF37]/10">
+                "Legasi akal, jiwa dan prinsip hidup Abah akan sentiasa kami hidupi dengan damai, tanpa ragu, tanpa resah."
             </p>
 
             <div class="floral-divider my-10">
@@ -614,58 +838,260 @@
         </div>
     </footer>
 
-    <!-- MODALS -->
+    <!-- MODALS FOR BOOKS -->
+    <!-- Modal 1 -->
     <div id="modal-book-1" class="modal-overlay">
         <div class="modal-content border-t-8 border-[#0F3822] p-8 md:p-12">
-            <button class="close-btn" onclick="closeModal('modal-book-1')"><i class="fas fa-times"></i></button>
+            <button class="close-btn" onclick="closeModal('modal-book-1')" aria-label="Tutup"><i class="fas fa-times"></i></button>
             <h2 class="text-2xl md:text-3xl font-serif-literary font-bold mb-2 text-[#D4AF37]">Jalan Ke Taman (1983)</h2>
-            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">Sebuah naskah mercu tanda yang memperlihatkan peralihan ketara seni Alis Murni ke arah pengukuhan jiwa dengan keislaman, keimanan, dan ketaqwaan.</p>
+            <p class="text-sm uppercase tracking-widest text-gray-400 mb-6 font-sans">Antologi Puisi</p>
+            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">
+                Sebuah naskah mercu tanda yang memperlihatkan peralihan ketara seni Alis Murni ke arah pengukuhan jiwa dengan keislaman, keimanan, dan ketaqwaan. Di sinilah terletaknya sajak ikonik <em>"Sebuah Rumah Budaya"</em>. Menolak kesimpulan atas ikatan peribadi, beliau memilih untuk kembali kepada akar tradisi yang hakiki.
+            </p>
         </div>
     </div>
 
+    <!-- Modal 2 -->
     <div id="modal-book-2" class="modal-overlay">
         <div class="modal-content border-t-8 border-[#4A0E17] p-8 md:p-12">
-            <button class="close-btn" onclick="closeModal('modal-book-2')"><i class="fas fa-times"></i></button>
+            <button class="close-btn" onclick="closeModal('modal-book-2')" aria-label="Tutup"><i class="fas fa-times"></i></button>
             <h2 class="text-2xl md:text-3xl font-serif-literary font-bold mb-2 text-[#D4AF37]">Letusan</h2>
-            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">Bukti keluwesan Alis Murni dalam dunia persuratan kreatif sebagai seorang novelis yang hebat.</p>
+            <p class="text-sm uppercase tracking-widest text-gray-400 mb-6 font-sans">Karya Novel</p>
+            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">
+                Bukti keluwesan Alis Murni dalam dunia persuratan kreatif. Karya ini membuktikan bahawa beliau bukan sahaja tajam sebagai seorang pengkritik sastera yang menganalisa karya orang lain, malah beliau sendiri adalah seorang pencerita hebat yang mampu menganyam plot and emosi manusia ke dalam ruang lingkup sosiobudaya zamannya.
+            </p>
         </div>
     </div>
 
+    <!-- Modal 3 -->
     <div id="modal-book-3" class="modal-overlay">
         <div class="modal-content border-t-8 border-[#0B192C] p-8 md:p-12">
-            <button class="close-btn" onclick="closeModal('modal-book-3')"><i class="fas fa-times"></i></button>
+            <button class="close-btn" onclick="closeModal('modal-book-3')" aria-label="Tutup"><i class="fas fa-times"></i></button>
             <h2 class="text-2xl md:text-3xl font-serif-literary font-bold mb-2 text-[#D4AF37]">Hikayat Inderaputera</h2>
-            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">Usaha akademik bernilai tinggi dalam menyelenggara manuskrip klasik Melayu secara struktural.</p>
+            <p class="text-sm uppercase tracking-widest text-gray-400 mb-6 font-sans">Penyelenggaraan Manuskrip</p>
+            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">
+                Usaha akademik yang bernilai amat tinggi. Sebagai penyelidik dan penyunting, Prof. Ali Ahmad telah menyelidik, mengkaji, dan menyelenggara manuskrip klasik Melayu ini dengan ketelitian yang luar biasa. Kajian strukturalnya memastikan warisan asli bangsa terus terpelihara dan difahami oleh generasi pengkaji akan datang.
+            </p>
         </div>
     </div>
 
+    <!-- Modal 4 -->
     <div id="modal-book-4" class="modal-overlay">
         <div class="modal-content border-t-8 border-[#2C2C2C] p-8 md:p-12">
-            <button class="close-btn" onclick="closeModal('modal-book-4')"><i class="fas fa-times"></i></button>
+            <button class="close-btn" onclick="closeModal('modal-book-4')" aria-label="Tutup"><i class="fas fa-times"></i></button>
             <h2 class="text-2xl md:text-3xl font-serif-literary font-bold mb-2 text-[#D4AF37]">Bahasa Kesusasteraan dan Kebudayaan Melayu</h2>
-            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">Rangkuman esei kritikan sastera mendalam yang menjadi teks rujukan utama di menara gading.</p>
+            <p class="text-sm uppercase tracking-widest text-gray-400 mb-6 font-sans">Esei & Kritikan Sastera</p>
+            <p class="text-base text-gray-300 leading-relaxed font-serif-literary">
+                Karya yang memuatkan rangkuman esei kritikan sastera yang mendalam. Bukunya ini telah diiktiraf and diangkat menjadi teks rujukan utama di menara gading seperti Universiti Sains Malaysia (USM) dan Universiti Kebangsaan Malaysia (UKM) bagi memandu mahasiswa mendalami teori kritikan sastera tempatan.
+            </p>
         </div>
     </div>
 
-    <!-- AUDIO WIDGET -->
+    <!-- SOOTHING SUFI AMBIENT MUSIC WIDGET -->
     <div id="audio-panel" class="audio-widget">
-        <button id="audio-toggle-btn" onclick="toggleAudio()" class="w-10 h-10 rounded-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#0F172A] flex items-center justify-center focus:outline-none shadow-md">
+        <!-- Interactive Play Button with breathing animation -->
+        <button id="audio-toggle-btn" onclick="toggleAudio()" class="w-10 h-10 rounded-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#0F172A] flex items-center justify-center focus:outline-none transition-transform active:scale-95 shadow-md">
             <i id="audio-icon" class="fas fa-music text-sm ml-0.5"></i>
         </button>
+        <!-- Expanded Status & Control Deck -->
         <div id="audio-controls" class="hidden flex items-center gap-3">
             <div class="flex flex-col">
                 <span class="text-[10px] font-sans text-[#D4AF37] uppercase tracking-wider font-semibold leading-none mb-1">Muzik Latar</span>
                 <span class="text-xs font-serif-literary italic text-gray-300 whitespace-nowrap leading-none">Alunan Kedamaian Taman</span>
             </div>
+            <!-- Canvas live-pulse equalizer -->
             <canvas id="visualizer-canvas" width="60" height="24" class="opacity-70"></canvas>
+            <!-- Custom Sound Slider -->
             <div class="flex items-center gap-1">
                 <i class="fas fa-volume-down text-[10px] text-gray-400"></i>
-                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="1.0" oninput="adjustVolume(this.value)" class="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#D4AF37]">
+                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.8" oninput="adjustVolume(this.value)" class="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#D4AF37]">
             </div>
         </div>
     </div>
 
+    <!-- JavaScript for Modals & Web Audio API Islamic/Sufi Synthesizer -->
     <script>
+        // ========================================================
+        // WEB AUDIO API SYNTHESIZER: WARM & UPLIFTING G-MAJOR CHORDS
+        // ========================================================
+        let audioCtx = null;
+        let masterGain = null;
+        let isPlaying = false;
+        let playInterval = null;
+        let visualizerInterval = null;
+        
+        // Uplifting G-Major Pentatonic Scale & Chords (Zero "nyaring" high frequencies)
+        const chords = [
+            [196.00, 246.94, 293.66, 392.00], // G-Major (Warm fundamental chord)
+            [164.81, 196.00, 246.94, 329.63], // E-Minor (Emotional comfort)
+            [130.81, 164.81, 293.66, 261.63], // C-Major9 (Sweet & modern)
+            [146.83, 220.00, 293.66, 369.99]  // D-Major (Uplifting resolution)
+        ];
+        
+        let chordIndex = 0;
+        let stepIndex = 0;
+
+        function initAudio() {
+            if (audioCtx) return;
+
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContextClass();
+            
+            masterGain = audioCtx.createGain();
+            masterGain.gain.setValueAtTime(0.8, audioCtx.currentTime); // 80% default volume (LOUDER)
+            masterGain.connect(audioCtx.destination);
+        }
+
+        // Synthesize a very warm, plucked chord note (Like acoustic guitar / soft Rhodes)
+        function playPluckNote(freq, time, vol = 0.12) {
+            if (!audioCtx) return;
+            
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            const filter = audioCtx.createBiquadFilter();
+
+            // Triangle gives a beautiful woody, warm electric piano body
+            osc1.type = 'triangle';
+            osc1.frequency.setValueAtTime(freq, time);
+
+            // Sine adds pure fundamental sub-warmth (octave lower)
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(freq * 0.5, time);
+
+            // STRIKT LOWPASS FILTER: Absolutely cuts off any high-pitched or "nyaring" sound!
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(650, time); // Extremely warm cutoff frequency
+            filter.Q.value = 1.0;
+
+            // ADSR Envelope: Soft attack (35ms) to prevent clicks, smooth cozy decay (1.4s)
+            gainNode.gain.setValueAtTime(0, time);
+            gainNode.gain.linearRampToValueAtTime(vol, time + 0.035);
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, time + 1.4);
+
+            osc1.connect(filter);
+            osc2.connect(filter);
+            filter.connect(gainNode);
+            gainNode.connect(masterGain);
+
+            osc1.start(time);
+            osc1.stop(time + 1.5);
+            osc2.start(time);
+            osc2.stop(time + 1.5);
+        }
+
+        // Master playback step sequencer loop (Uplifting, bouncy arpeggios)
+        function startMelodyLoop() {
+            const stepTime = 380; // 380ms per step
+            
+            playInterval = setInterval(() => {
+                const currentChord = chords[chordIndex];
+                const now = audioCtx.currentTime;
+
+                // Play warm bass note on the downbeats
+                if (stepIndex % 4 === 0) {
+                    playPluckNote(currentChord[0], now, 0.16);
+                }
+                
+                // Play syncopated, comforting arpeggiator notes
+                if (stepIndex === 0 || stepIndex === 6 || stepIndex === 12) {
+                    playPluckNote(currentChord[1], now, 0.09);
+                } else if (stepIndex === 2 || stepIndex === 8) {
+                    playPluckNote(currentChord[2], now, 0.09);
+                } else if (stepIndex === 4 || stepIndex === 10 || stepIndex === 14) {
+                    playPluckNote(currentChord[3], now, 0.07);
+                }
+
+                stepIndex++;
+                if (stepIndex >= 16) {
+                    stepIndex = 0;
+                    // Move to the next beautiful major chord sequence
+                    chordIndex = (chordIndex + 1) % chords.length;
+                }
+            }, stepTime);
+        }
+
+        function toggleAudio() {
+            const panel = document.getElementById('audio-panel');
+            const icon = document.getElementById('audio-icon');
+            const controls = document.getElementById('audio-controls');
+
+            if (!isPlaying) {
+                initAudio();
+                
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                // Smooth fade-in
+                masterGain.gain.linearRampToValueAtTime(document.getElementById('volume-slider').value, audioCtx.currentTime + 0.8);
+
+                // Trigger the uplifting acoustic loop
+                startMelodyLoop();
+                
+                panel.classList.add('audio-widget-expanded');
+                controls.classList.remove('hidden');
+                icon.className = 'fas fa-pause text-sm';
+                
+                startVisualizerAnimation();
+                isPlaying = true;
+            } else {
+                // Smooth fade-out before stop
+                masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.6);
+                
+                setTimeout(() => {
+                    clearInterval(playInterval);
+                    clearInterval(visualizerInterval);
+                    stopVisualizerDraw();
+                    
+                    panel.classList.remove('audio-widget-expanded');
+                    controls.classList.add('hidden');
+                    icon.className = 'fas fa-play text-sm ml-0.5';
+                    isPlaying = false;
+                }, 600);
+            }
+        }
+
+        function adjustVolume(val) {
+            if (masterGain && audioCtx) {
+                masterGain.gain.linearRampToValueAtTime(parseFloat(val), audioCtx.currentTime + 0.1);
+            }
+        }
+
+        // ========================================================
+        // LIVE SIMULATED WAVEFORM VISUALIZER ON CANVAS
+        // ========================================================
+        const vizCanvas = document.getElementById('visualizer-canvas');
+        const vizCtx = vizCanvas.getContext('2d');
+        let wavePhase = 0;
+
+        function startVisualizerAnimation() {
+            clearInterval(visualizerInterval);
+            visualizerInterval = setInterval(() => {
+                vizCtx.clearRect(0, 0, vizCanvas.width, vizCanvas.height);
+                
+                // Draw 4 beautiful golden moving waveform/equalizer bars
+                vizCtx.fillStyle = '#D4AF37';
+                
+                for (let i = 0; i < 4; i++) {
+                    const sinHeight = Math.sin(wavePhase + (i * 1.5)) * Math.cos(wavePhase * 0.5 + i);
+                    const barHeight = Math.max(3, 12 + (sinHeight * 10));
+                    
+                    vizCtx.fillRect(i * 12 + 6, vizCanvas.height - barHeight, 6, barHeight);
+                }
+                
+                wavePhase += 0.15;
+            }, 50);
+        }
+
+        function stopVisualizerDraw() {
+            vizCtx.clearRect(0, 0, vizCanvas.width, vizCanvas.height);
+            vizCtx.fillStyle = 'rgba(212, 175, 55, 0.4)';
+            for (let i = 0; i < 4; i++) {
+                vizCtx.fillRect(i * 12 + 6, vizCanvas.height - 3, 6, 3);
+            }
+        }
+
         function openModal(id) {
             document.getElementById(id).classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -683,151 +1109,15 @@
             }
         }
 
-        let audioCtx = null;
-        let masterGain = null;
-        let isPlaying = false;
-        let playInterval = null;
-        let visualizerInterval = null;
-        
-        const chords = [
-            [196.00, 246.94, 293.66, 392.00], 
-            [164.81, 196.00, 246.94, 329.63], 
-            [130.81, 164.81, 293.66, 261.63], 
-            [146.83, 220.00, 293.66, 369.99]  
-        ];
-        
-        let chordIndex = 0;
-        let stepIndex = 0;
-
-        function initAudio() {
-            if (audioCtx) return;
-            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-            audioCtx = new AudioContextClass();
-            masterGain = audioCtx.createGain();
-            masterGain.gain.setValueAtTime(1.0, audioCtx.currentTime); 
-            masterGain.connect(audioCtx.destination);
-        }
-
-        function playPluckNote(freq, time, vol = 0.12) {
-            if (!audioCtx) return;
-            const osc1 = audioCtx.createOscillator();
-            const osc2 = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            const filter = audioCtx.createBiquadFilter();
-
-            osc1.type = 'triangle';
-            osc1.frequency.setValueAtTime(freq, time);
-
-            osc2.type = 'sine';
-            osc2.frequency.setValueAtTime(freq * 0.5, time);
-
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(650, time);
-            filter.Q.value = 1.0;
-
-            gainNode.gain.setValueAtTime(0, time);
-            gainNode.gain.linearRampToValueAtTime(vol, time + 0.035);
-            gainNode.gain.exponentialRampToValueAtTime(0.0001, time + 1.4);
-
-            osc1.connect(filter);
-            osc2.connect(filter);
-            filter.connect(gainNode);
-            gainNode.connect(masterGain);
-
-            osc1.start(time);
-            osc1.stop(time + 1.5);
-            osc2.start(time);
-            osc2.stop(time + 1.5);
-        }
-
-        function startMelodyLoop() {
-            const stepTime = 380; 
-            playInterval = setInterval(() => {
-                const currentChord = chords[chordIndex];
-                const now = audioCtx.currentTime;
-
-                if (stepIndex % 4 === 0) {
-                    playPluckNote(currentChord[0], now, 0.28); 
-                }
-                
-                if (stepIndex === 0 || stepIndex === 6 || stepIndex === 12) {
-                    playPluckNote(currentChord[1], now, 0.18); 
-                } else if (stepIndex === 2 || stepIndex === 8) {
-                    playPluckNote(currentChord[2], now, 0.18); 
-                } else if (stepIndex === 4 || stepIndex === 10 || stepIndex === 14) {
-                    playPluckNote(currentChord[3], now, 0.14); 
-                }
-
-                stepIndex++;
-                if (stepIndex >= 16) {
-                    stepIndex = 0;
-                    chordIndex = (chordIndex + 1) % chords.length;
-                }
-            }, stepTime);
-        }
-
-        function toggleAudio() {
-            const panel = document.getElementById('audio-panel');
-            const icon = document.getElementById('audio-icon');
-            const controls = document.getElementById('audio-controls');
-
-            if (!isPlaying) {
-                initAudio();
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                masterGain.gain.linearRampToValueAtTime(document.getElementById('volume-slider').value, audioCtx.currentTime + 0.8);
-                startMelodyLoop();
-                panel.classList.add('audio-widget-expanded');
-                controls.classList.remove('hidden');
-                icon.className = 'fas fa-pause text-sm';
-                startVisualizerAnimation();
-                isPlaying = true;
-            } else {
-                masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.6);
-                setTimeout(() => {
-                    clearInterval(playInterval);
-                    clearInterval(visualizerInterval);
-                    stopVisualizerDraw();
-                    panel.classList.remove('audio-widget-expanded');
-                    controls.classList.add('hidden');
-                    icon.className = 'fas fa-play text-sm ml-0.5';
-                    isPlaying = false;
-                }, 600);
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModals = document.querySelectorAll('.modal-overlay.active');
+                activeModals.forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
             }
-        }
-
-        function adjustVolume(val) {
-            if (masterGain && audioCtx) {
-                masterGain.gain.linearRampToValueAtTime(parseFloat(val), audioCtx.currentTime + 0.1);
-            }
-        }
-
-        const vizCanvas = document.getElementById('visualizer-canvas');
-        const vizCtx = vizCanvas.getContext('2d');
-        let wavePhase = 0;
-
-        function startVisualizerAnimation() {
-            clearInterval(visualizerInterval);
-            visualizerInterval = setInterval(() => {
-                vizCtx.clearRect(0, 0, vizCanvas.width, vizCanvas.height);
-                vizCtx.fillStyle = '#D4AF37';
-                for (let i = 0; i < 4; i++) {
-                    const sinHeight = Math.sin(wavePhase + (i * 1.5)) * Math.cos(wavePhase * 0.5 + i);
-                    const barHeight = Math.max(3, 12 + (sinHeight * 10));
-                    vizCtx.fillRect(i * 12 + 6, vizCanvas.height - barHeight, 6, barHeight);
-                }
-                wavePhase += 0.15;
-            }, 50);
-        }
-
-        function stopVisualizerDraw() {
-            vizCtx.clearRect(0, 0, vizCanvas.width, vizCanvas.height);
-            vizCtx.fillStyle = 'rgba(212, 175, 55, 0.4)';
-            for (let i = 0; i < 4; i++) {
-                vizCtx.fillRect(i * 12 + 6, vizCanvas.height - 3, 6, 3);
-            }
-        }
+        });
 
         window.addEventListener('load', stopVisualizerDraw);
     </script>
